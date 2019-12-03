@@ -1,6 +1,5 @@
 Program karteisystem (input, output);
-{Programm zum anlegen und verwalten einer Büchersammlung.
-* Author : Kai Müller}
+{Programm zum anlegen und verwalten einer Büchersammlung.}
 uses Crt;
 
   type

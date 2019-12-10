@@ -10,13 +10,13 @@ uses crt;
   type 
   trefChar  = ^tCharacter;
   tCharacter = record
-		 			  		name     : string;
-		 			  		atk,
-		   		  		dmg,
-				    		hlthmax,
-					    	hlthakt  : integer;
-				  	  	next     : trefChar;
-				  	 end;
+	       	 name     : string;
+		 atk,
+		 dmg,
+		 hlthmax,
+		 hlthakt  : integer;
+		 next     : trefChar;
+	       end;
 
   var
   trefMonster : trefChar;
@@ -46,12 +46,12 @@ uses crt;
           {Falls getroffen}
           begin
             ioCharT^.hlthakt := ioCharT^.hlthakt - ioCharO^.dmg;
-	  				writeln (ioCharT^.name, ', wurde getroffen für ', ioCharO^.dmg,' Schaden');
-	  				writeln ('Noch ', ioCharT^.hlthakt, 'LP')
-  				end
-  				else
-  				  writeln (' verfehlt');
-  				battle(ioCharT, ioCharO); {Rekursiver Aufruf mit vertauschten Rollen}	            
+	    writeln (ioCharT^.name, ', wurde getroffen für ', ioCharO^.dmg,' Schaden');
+	    writeln ('Noch ', ioCharT^.hlthakt, 'LP')
+  	  end
+  	  else
+  	    writeln (' verfehlt');
+  	battle(ioCharT, ioCharO); {Rekursiver Aufruf mit vertauschten Rollen}	            
         end;
       end; {battle}
   
@@ -95,5 +95,5 @@ begin
   writeln ('GAME OVER') 
  
 end.
- {RPGFight}
+{RPGFight}
   

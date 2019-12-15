@@ -9,15 +9,15 @@ uses crt;
   
   type 
   tChar = record
-		 			  		name     : string;
-		 			  		atk,
-		   		  		dmg,
-				    		hlthmax,
-					    	hlthakt,
-					    	Lvl,
-					    	XP       :integer;
-				  	 end;
-	tMonsterLst = array [1..MonsterMax] of tChar;			  	 
+	    name     : string;
+	    atk,
+            dmg,
+	    hlthmax,
+	    hlthakt,
+	    Lvl,
+	    XP       : integer;
+          end;
+  tMonsterLst = array [1..MonsterMax] of tChar;			  	 
 				  	 
 
   var
@@ -41,19 +41,19 @@ uses crt;
 		
   begin
 
-		Assign (Datei, MonsterDat);
-		Reset (Datei);
-		if not (EOF (Datei)) then {falls nicht leer}
-		begin
-  		i:= 0;
-	  	while not (EOF (Datei)) and (i <= MonsterMax) do
-		  begin
-			  i := i+1;
-  			readln (Datei, gelesenstr);
+   Assign (Datei, MonsterDat);
+   Reset (Datei);
+   if not (EOF (Datei)) then {falls nicht leer}
+   begin
+     i:= 0;
+     while not (EOF (Datei)) and (i <= MonsterMax) do
+     begin
+        i := i+1;
+        readln (Datei, gelesenstr);
         ReadMonsters[i].name := gelesenstr;  
-		  	readln (Datei, gelesenint);
-  			ReadMonsters[i].atk := gelesenint;
-  			readln (Datei, gelesenint);
+        readln (Datei, gelesenint);
+        ReadMonsters[i].atk := gelesenint;
+        readln (Datei, gelesenint);
         ReadMonsters[i].dmg := gelesenint;
         readln (Datei, gelesenint);
         ReadMonsters[i].hlthmax := gelesenint ;   
@@ -63,13 +63,13 @@ uses crt;
         readln (Datei, gelesenint);
         ReadMonsters[i].Lvl := gelesenint ;
         readln (Datei)
-		  end;
-		  outMonsteraktuell := i
-		end
-		else
-		  writeln ('Enmy.txt konnte nicht geoeffnet werden'); 
-	  close (Datei);
-	end;{ReadMonsters}	
+      end;
+      outMonsteraktuell := i
+    end
+    else
+      writeln ('Enmy.txt konnte nicht geoeffnet werden'); 
+    close (Datei);
+  end;{ReadMonsters}	
 
 
 
@@ -122,7 +122,7 @@ uses crt;
     var 
     Enemy : tChar;
   
-	  procedure battle ( var ioCharO, ioCharT : tChar);
+    procedure battle ( var ioCharO, ioCharT : tChar);
     {Unter - Prozedur zum Abhandeln von Kämpfe}
     
       begin
@@ -134,12 +134,12 @@ uses crt;
           {Falls getroffen}
           begin
             ioCharT.hlthakt := ioCharT.hlthakt - ioCharO.dmg;
-	  				writeln (ioCharT.name, ', wurde getroffen für ', ioCharO.dmg,' Schaden');
-	  				writeln ('Noch ', ioCharT.hlthakt, 'LP')
-  				end
-  				else
-  				  writeln ('verfehlt');
-  				battle(ioCharT, ioCharO); {Rekursiver Aufruf mit vertauschten Rollen}	            
+            writeln (ioCharT.name, ', wurde getroffen für ', ioCharO.dmg,' Schaden');
+	    writeln ('Noch ', ioCharT.hlthakt, 'LP')
+  	  end
+  	  else
+  	    writeln ('verfehlt');
+  	    battle(ioCharT, ioCharO); {Rekursiver Aufruf mit vertauschten Rollen}	            
         end;
       end; {battle}
   
